@@ -137,7 +137,7 @@ public class PaymentController {
                     }
                 } else if (userAgent.contains("Mozilla")) {
                     HttpHeaders httpHeaders = new HttpHeaders();
-                    httpHeaders.add("location", "http://localhost:3000/payment/success");
+                    httpHeaders.add("location", "https://pbl6.netlify.app/payment/success");
                     if(orderRequest.getProductId() != null) {
                         orderService.saveOrderBuyNow(user, orderRequest, "COMPLETE","VNPAY");
                     } else {
@@ -149,7 +149,7 @@ public class PaymentController {
             } else {
                 if(userAgent.contains("Mozilla")) {
                     HttpHeaders httpHeaders = new HttpHeaders();
-                    httpHeaders.add("location", "http://localhost:3000/payment/fail");
+                    httpHeaders.add("location", "https://pbl6.netlify.app/payment/fail");
                     return new ResponseEntity<>(httpHeaders, HttpStatus.FOUND);
                 }
                 paymentResultDto.setStatus("FAIL");
